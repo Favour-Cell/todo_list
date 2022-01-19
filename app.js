@@ -154,6 +154,11 @@ app.post("/contact", function(req,res){
     res.sendFile(__dirname + "/contact.ejs");
 })
 
-app.listen(process.env.PORT || 5000, function() {
-    console.log("Server is running on port 5000.");
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 5000;
+}
+
+app.listen(port, function() {
+    console.log("Server has started successfully.");
 });
